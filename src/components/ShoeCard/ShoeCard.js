@@ -48,7 +48,11 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <Price>
+            {salePrice ? <s>{formatPrice(price)}</s> : formatPrice(price)}
+            <br />
+            {salePrice && <Price sale>{formatPrice(salePrice)}</Price>}
+          </Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
@@ -88,7 +92,9 @@ const Name = styled.h3`
   color: ${COLORS.gray[900]};
 `;
 
-const Price = styled.span``;
+const Price = styled.span`
+  color: ${(props) => props.sale && COLORS.primary};
+`;
 
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
