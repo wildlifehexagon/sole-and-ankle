@@ -47,8 +47,6 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   order: 1;
-  width: 248px;
-  margin-right: 32px;
 `;
 
 const MainColumn = styled.div`
