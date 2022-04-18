@@ -27,22 +27,22 @@ const Wrapper = styled.div`
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 10px 32px 10px 32px;
+  gap: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+  height: 40px;
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
-  flex-grow: 1;
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`
   color: inherit;
   text-decoration: none;
   outline-offset: 2px;
-  margin-left: 27px;
-  margin-right: 27px;
 
   &:not(:focus-visible) {
     outline: none;
