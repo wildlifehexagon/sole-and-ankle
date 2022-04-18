@@ -5,6 +5,11 @@ import { COLORS, WEIGHTS } from "../../constants";
 import { formatPrice, pluralize, isNewShoe } from "../../utils";
 import Spacer from "../Spacer";
 
+const VARIANTS = {
+  "on-sale": "Sale",
+  "new-release": "Just Released!",
+};
+
 const ShoeCard = ({
   slug,
   name,
@@ -35,6 +40,9 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
+          {variant !== "default" && (
+            <SalePrice variant={variant}>{VARIANTS[variant]}</SalePrice>
+          )}
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
@@ -69,6 +77,9 @@ const Image = styled.img`
 `;
 
 const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 1rem;
 `;
 
@@ -85,7 +96,16 @@ const ColorInfo = styled.p`
 
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
-  color: ${COLORS.primary};
+  font-size: 0.875rem;
+  color: white;
+  background-color: ${(props) =>
+    props.variant === "on-sale" ? COLORS.primary : COLORS.secondary};
+  position: absolute;
+  top: 12px;
+  right: 0px;
+  margin-right: -4px;
+  padding: 7px 9px 9px 11px;
+  border-radius: 2px;
 `;
 
 export default ShoeCard;
