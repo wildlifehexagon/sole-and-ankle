@@ -67,16 +67,14 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article`
-  width: 340px;
-`;
+const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
 const Image = styled.img`
-  width: 340px;
+  width: 100%;
   border-radius: 16px 16px 4px 4px;
 `;
 
